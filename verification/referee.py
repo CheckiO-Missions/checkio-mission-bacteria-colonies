@@ -34,15 +34,25 @@ from checkio.referees import checkers
 
 from tests import TESTS
 
+
+def checker(answer, user):
+    return user in answer
+
+
+cover = """def cover(f, data):
+    return tuple(tuple(1 if x else 0 for x in row) for row in data)
+"""
+
 api.add_listener(
     ON_CONNECT,
     CheckiOReferee(
         tests=TESTS,
         cover_code={
-            'python-27': cover_codes.unwrap_args,  # or None
-            'python-3': cover_codes.unwrap_args
+            'python-27': cover,
+            'python-3': cover
         },
-        # checker=None,  # checkers.float.comparison(2)
+        checker=checker,
+        function_name="healthy"
         # add_allowed_modules=[],
         # add_close_builtins=[],
         # remove_allowed_modules=[]
