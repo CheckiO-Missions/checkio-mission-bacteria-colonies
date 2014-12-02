@@ -1,11 +1,41 @@
-def checkio(a, b):
-    """
-        sums two passed arguments
-    """
-    return None
+def healthy(grid):
+    return 0, 0
+
 
 if __name__ == '__main__':
-    #These "asserts" using only for self-checking and not necessary for auto-testing
-    assert checkio(3, 2) == 5
-    assert checkio(5, 7) == 12
-    print('Done')
+    # These "asserts" using only for self-checking and not necessary for auto-testing
+    def check(result, answers):
+        return list(result) in answers
+
+    check(healthy(((0, 1, 0),
+                   (1, 1, 1),
+                   (0, 1, 0),)), [[1, 1]])
+    check(healthy(((0, 0, 1, 0, 0),
+                   (0, 1, 1, 1, 0),
+                   (0, 0, 1, 0, 0),
+                   (0, 0, 0, 0, 0),
+                   (0, 0, 1, 0, 0),)), [[1, 2]])
+    check(healthy(((0, 0, 1, 0, 0),
+                   (0, 1, 1, 1, 0),
+                   (0, 0, 1, 0, 0),
+                   (0, 0, 1, 0, 0),
+                   (0, 0, 1, 0, 0),)), [[0, 0]])
+    check(healthy(((0, 0, 0, 0, 0, 0, 1, 0),
+                   (0, 0, 1, 0, 0, 1, 1, 1),
+                   (0, 1, 1, 1, 0, 0, 1, 0),
+                   (1, 1, 1, 1, 1, 0, 0, 0),
+                   (0, 1, 1, 1, 0, 0, 1, 0),
+                   (0, 0, 1, 1, 0, 1, 1, 1),
+                   (0, 0, 1, 0, 0, 0, 1, 0),)), [[3, 2]])
+    check(healthy(((0, 0, 0, 0, 0, 0, 2, 0),
+                   (0, 0, 0, 2, 2, 2, 2, 2),
+                   (0, 0, 1, 0, 0, 0, 2, 0),
+                   (0, 1, 1, 1, 0, 0, 2, 0),
+                   (1, 1, 1, 1, 1, 0, 2, 0),
+                   (0, 1, 1, 1, 0, 0, 2, 0),
+                   (0, 0, 1, 0, 0, 0, 2, 0),
+                   (0, 0, 0, 1, 0, 0, 2, 0),
+                   (0, 0, 1, 1, 1, 0, 2, 0),
+                   (0, 1, 1, 1, 1, 1, 0, 0),
+                   (0, 0, 1, 1, 1, 0, 0, 0),
+                   (0, 0, 0, 1, 0, 0, 0, 0),)), [[4, 2], [9, 3]])
