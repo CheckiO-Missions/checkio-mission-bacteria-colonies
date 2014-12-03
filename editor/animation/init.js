@@ -162,10 +162,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                     for (var col = 0; col < width; col++) {
                         paper.rect(pad + col * cellSize, pad + row * cellSize, cellSize, cellSize).attr(aCell);
                         if (grid[row][col] === 2){
-                            paper.circle(pad + (col + 0.5) * cellSize, pad + (row + 0.5) * cellSize, cellSize / 2).attr(aUH)
+                            paper.circle(pad + (col + 0.5) * cellSize, pad + (row + 0.5) * cellSize, cellSize / 2 - 1).attr(aUH)
                         }
                         else if (grid[row][col] === 1){
-                            paper.circle(pad + (col + 0.5) * cellSize, pad + (row + 0.5) * cellSize, cellSize / 2).attr(aH)
+                            paper.circle(pad + (col + 0.5) * cellSize, pad + (row + 0.5) * cellSize, cellSize / 2 - 1).attr(aH)
                         }
                     }
                 }
