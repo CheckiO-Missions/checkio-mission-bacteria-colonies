@@ -36,7 +36,7 @@ from tests import TESTS
 
 
 def checker(answer, user):
-    return user in answer
+    return user in answer, ""
 
 
 cover = """def cover(f, data):
