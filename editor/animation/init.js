@@ -40,10 +40,11 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var fname = 'healthy';
 
             var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput) + ')';
+            var checkioInputStr = fname + '(' +
+                JSON.stringify(checkioInput).replace(/\[/g, "(").replace(/\[/g, "(").replace(/]/g, ")").replace(/2/g, "1") + ')';
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);
@@ -68,6 +69,9 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 
             $content.find('.call').html(checkioInputStr);
             $content.find('.output').html('Working...');
+
+            var svg = new SVG($content.find(".explanation")[0]);
+            svg.draw(checkioInput);
 
 
             if (data.ext) {
@@ -121,20 +125,53 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 //            });
 //        });
 
-        var colorOrange4 = "#F0801A";
-        var colorOrange3 = "#FA8F00";
-        var colorOrange2 = "#FAA600";
-        var colorOrange1 = "#FABA00";
 
-        var colorBlue4 = "#294270";
-        var colorBlue3 = "#006CA9";
-        var colorBlue2 = "#65A1CF";
-        var colorBlue1 = "#8FC7ED";
+        function SVG(dom) {
+            var colorOrange4 = "#F0801A";
+            var colorOrange3 = "#FA8F00";
+            var colorOrange2 = "#FAA600";
+            var colorOrange1 = "#FABA00";
 
-        var colorGrey4 = "#737370";
-        var colorGrey3 = "#9D9E9E";
-        var colorGrey2 = "#C5C6C6";
-        var colorGrey1 = "#EBEDED";
+            var colorBlue4 = "#294270";
+            var colorBlue3 = "#006CA9";
+            var colorBlue2 = "#65A1CF";
+            var colorBlue1 = "#8FC7ED";
+
+            var colorGrey4 = "#737370";
+            var colorGrey3 = "#9D9E9E";
+            var colorGrey2 = "#C5C6C6";
+            var colorGrey1 = "#EBEDED";
+
+            var pad = 10;
+            var cellSize = 24;
+
+            var paper;
+            var sizeX, sizeY;
+
+            var aCell = {"stroke": colorBlue4, "stroke-width": 1, "fill": colorBlue1};
+            var aH = {"stroke": colorBlue4, "stroke-width": 1, "fill": colorBlue4};
+            var aUH = {"stroke": colorBlue4, "stroke-width": 1, "fill": colorOrange4};
+
+            this.draw = function(grid) {
+                var width = grid[0].length;
+                var heigth = grid.length;
+                paper = Raphael(dom, pad * 2 + width * cellSize, 2 * pad + height * cellSize);
+
+
+                for (var row = 0; row < heigth; row++) {
+                    for (var col = 0; col < width; col++) {
+                        paper.rect(pad + col * cellSize, pad + row * cellSize, cellSize, cellSize).attr(aCell);
+                        if (grid[row][col] === 2){
+                            paper.circle(pad + (col + 0.5) * cellSize, pad + (row + 0.5) * cellSize, cellSize / 2).attr(aUH)
+                        }
+                        else if (grid[row][col] === 1){
+                            paper.circle(pad + (col + 0.5) * cellSize, pad + (row + 0.5) * cellSize, cellSize / 2).attr(aH)
+                        }
+                    }
+                }
+            }
+
+        }
 
         var colorWhite = "#FFFFFF";
         //Your Additional functions or objects inside scope
