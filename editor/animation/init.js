@@ -158,7 +158,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 paper = Raphael(dom, pad * 2 + width * cellSize, 2 * pad + height * cellSize);
 
 
-                for (var row = 0; row < heigth; row++) {
+                for (var row = 0; row < height; row++) {
                     for (var col = 0; col < width; col++) {
                         paper.rect(pad + col * cellSize, pad + row * cellSize, cellSize, cellSize).attr(aCell);
                         if (grid[row][col] === 2){
