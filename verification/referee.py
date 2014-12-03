@@ -40,7 +40,7 @@ def checker(answer, user):
 
 
 cover = """def cover(f, data):
-    return tuple(tuple(1 if x else 0 for x in row) for row in data)
+    return f(tuple(tuple(1 if x else 0 for x in row) for row in data))
 """
 
 api.add_listener(
