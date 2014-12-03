@@ -154,7 +154,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 
             this.draw = function(grid) {
                 var width = grid[0].length;
-                var heigth = grid.length;
+                var height = grid.length;
                 paper = Raphael(dom, pad * 2 + width * cellSize, 2 * pad + height * cellSize);
 
 
