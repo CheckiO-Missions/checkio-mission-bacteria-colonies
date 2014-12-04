@@ -1,17 +1,16 @@
 <p>
-    Biologists use bacteria to clone DNA for sequencing.
-    These bacteria are injected with the DNA that needs to be
-    cloned and then allowed to reproduce on a large plate.
-    As these bacteria reproduce they form colonies. Only bacteria
-    from healthy colonies will be used for sequencing.
-    And here bioinformatics take the game and use techonologies to automitize these process.
+    Biologists use bacteria to clone DNA for sequencing. These bacteria are then injected with the DNA that needs to be
+    cloned and allowed to reproduce on a large plate. As these bacteria reproduce, they begin to form colonies. Only
+    bacteria from healthy colonies will be used for sequencing. And here bioinformatics take the game and use
+    technologies to automate these process.
+
+
 </p>
 <p>
-    Let's represent a plate snapshot as a pixel grid.
-    You are given this grid as a binary matrix where 1 is bacteria cell and 0 is empty.
-    Our goal is find the largest healthy bacteria colony that grown uniformly.
-    Bacteria can grow in four adjacent cells and bacteria colony is a set of bacterias that are connected.
-    The healthy colonies are looked as it's represented on the image.
+    Let's represent a plate snapshot as a pixel grid. You are given this grid as a binary matrix where 1 is bacteria
+    cell and 0 is empty. Our goal is find the largest healthy bacteria colony which has grown uniformly. Bacteria can
+    grow in four adjacent cells and bacteria colony is a set of bacterias that are connected. The healthy colonies look
+    similar to the images represented below.
 </p>
 
 <p style="text-align: center;">
@@ -19,8 +18,9 @@
     <img class="for_editor_only" title="healthy" src="{{MEDIA}}healthy.svg" alt="healthy" width="380px"/>
 </p>
 <p>
-    On the next image unhealthy colonies are marked by orange colors. And remember - single cell is not a colony, so
-    it can not be counted as healthy colony.
+    Next, we can see that unhealthy colonies are marked with an orange color. Remember that a single cell is not a
+    colony, so it cannot be counted as healthy colony.
+
 </p>
 
 <p style="text-align: center;">
@@ -29,9 +29,9 @@
 </p>
 
 <p>
-    You should find the largest healthy colony and return coordinates of the center cell. The top-left cell has
-    coordinates (0, 0). If on the plate no a healthy colony, then return (0, 0) (or [0, 0]).
-    If on the plate several largest colonies with the same size, then return any of them.
+    Your mission is to find the largest healthy colony and return the coordinates of the center cell. The top-left cell
+    has coordinates (0, 0). If on the plate no a healthy colony, then return (0, 0) (or [0, 0]). If on the plate several
+    largest colonies with the same size, then return any of them.
 </p>
 
 
@@ -49,15 +49,18 @@
     <p>
         <strong>Example:</strong>
     </p>
-    <pre class="brush: python">
-    </pre>
+    <textarea data-code="python">
+healthy(((0, 1, 0),
+         (1, 1, 1),
+         (0, 1, 0),))</textarea>
 </div>
-
+<br>
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Here we see th mix of modeling, pattern recognition and data structure programing.
-    And how to use it for bioinformatics. If to be more correct - how bioinformatics can be useful for classical
-    biology.
+    This mission presents a mix of modeling, pattern recognition and data structure programing in addition to presenting
+    some ideas for how to use it in bioinformatics. That is assuming of course that bioinformatics can be useful for
+    classical biology.
+
 </p>
 
 <p>
