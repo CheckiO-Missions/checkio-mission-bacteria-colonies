@@ -1,0 +1,78 @@
+﻿<p>
+	生物学者はシークエンシング(塩基配列の解析)のためにDNAをクローンするとき、バクテリアを使います。
+	クローンする必要があるDNAを注入されたバクテリアを大きな培地(plate)で繁殖させます。
+	バクテリアは繁殖するにつれて、コロニーを形成しはじめます。
+	健康なコロニーのバクテリアだけが、シークエンシングに使われます。
+	そしてここで生物情報学(bioinformatics)をゲームにして、このプロセスを自動化するためのテクノロジーを使います。
+
+
+</p>
+<p>
+	培地のスナップショットをピクセルのグリッドで表現します。
+	あなたは、このグリッドを1-0行列で与えられます。ここで1はバクテリアのセルを0は空白を表します。
+	我々の目的は一様に成長した健康なバクテリアコロニーのうちで一番大きいものを発見することです。
+	バクテリアは4つの隣り合ったセルへ成長することができ、バクテリアコロニーは連結したバクテリアの集団です。
+	健康なコロニーは下の図で示したような形をしています。
+
+
+	
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="healthy" src="{{MEDIA}}healthy.svg" alt="healthy"/>
+    <img class="for_editor_only" title="healthy" src="{{MEDIA}}healthy.svg" alt="healthy" width="380px"/>
+</p>
+<p>
+	次にオレンジ色にマークした不健康なコロニーを見てみます。
+	単一のセルはコロニーではないので、健康なコロニーとして数えることができません。
+	
+	
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="healthy" src="{{MEDIA}}example.svg" alt="example"/>
+    <img class="for_editor_only" title="healthy" src="{{MEDIA}}example.svg" alt="example" width="380px"/>
+</p>
+
+<p>
+	あなたのミッションは最大の健康なコロニーを発見して、中央のセルの座標を返すことです。
+	左上のセルの座標は(0, 0)です。
+	培地に健康なセルがないとは、(0, 0)または[0, 0]を返します。
+	培地に同じ大きさの最大コロニーが複数あったときは、その中のどれか1つを返します。
+</p>
+
+
+<p>
+    <strong>入力: </strong> グリッド、整数1/0のtupleのtuple。
+</p>
+
+<p>
+    <strong>出力: </strong> 最大コロニーの座標、2つの整数のlistまたはtuple。
+</p>
+
+
+<div class="for_info_only">
+
+    <p>
+        <strong>例:</strong>
+    </p>
+    <textarea data-code="python">
+healthy(((0, 1, 0),
+         (1, 1, 1),
+         (0, 1, 0),)) == [1, 1]</textarea>
+</div>
+<br>
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+	このミッションはモデリングとパターン認識とデータ構造プログラミングの混合を示すことに加えて、
+	これを生物情報学にどのように使うかについてのいくつかのアイデアを示しています。
+	これはもちろん生物情報学が古典的な生物学のために役立つことを想定しています。
+	
+
+</p>
+
+<p>
+    <strong>事前条件:</strong><br>
+    5 &le; len(grid) &le; 20<br>
+    all(5 &le; len(row) &le; 20 for row in grid)
+</p>
