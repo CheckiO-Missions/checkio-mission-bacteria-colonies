@@ -1,0 +1,31 @@
+<p>Los bi&oacute;logos utilizan bacterias para clonar ADN en &ldquo;secuenciaci&oacute;n&rdquo;. Estas bacterias se inyectan con el ADN que quiere ser clonado, y se deja reproducir en grandes placas (plates). A medida que dichas bacterias se reproducen, empiezan a formar colonias y solo las bacterias de colonias sanas ser&aacute;n utilizadas para la secuenciaci&oacute;n. Es en este punto en donde la bioinform&aacute;tica entra al juego, implementando tecnolog&iacute;as para automatizar estos procesos.</p>
+
+<p>Vamos a representar una imagen instant&aacute;nea de una placa mediante una cuadr&iacute;cula de p&iacute;xeles. Se te entregar&aacute; la cuadricula como una matriz binaria en donde 1 representa una c&eacute;lula de bacteria y 0 es un espacio vac&iacute;o. Nuestro objetivo es encontrar la mayor colonia de bacterias saludables que haya crecido de manera uniforme. Las bacterias pueden crecer en cuatro celdas adyacentes y una colonia de bacterias es un set de bacterias conectado. Las colonias sanas tienen un aspecto similar a las siguientes im&aacute;genes:</p>
+
+<p style="text-align: center;"><img alt="healthy" class="for_info_only" src="{{MEDIA}}healthy.svg" title="healthy" /> <img alt="healthy" class="for_editor_only" src="{{MEDIA}}healthy.svg" title="healthy" width="380px" /></p>
+
+<p>A continuaci&oacute;n podemos ver que colonias poco saludables est&aacute;n marcadas con un color anaranjado. Recuerda que una sola c&eacute;lula no es una colonia, por lo que no se puede considerar como una colonia sana.</p>
+
+<p style="text-align: center;"><img alt="example" class="for_info_only" src="{{MEDIA}}example.svg" title="healthy" /> <img alt="example" class="for_editor_only" src="{{MEDIA}}example.svg" title="healthy" width="380px" /></p>
+
+<p>Tu misi&oacute;n es encontrar la mayor colonia saludable e informar las coordenadas de su celda central. La celda superior izquierda tiene las coordenadas (0, 0). Si no existe una colonia sana en la cuadricula, debes reportar (0, 0) (o [0, 0]). Si existen varias colonias con el mismo tama&ntilde;o (el mayor) puedes reportar cualquiera de ellas.</p>
+
+<p><strong>Datos de Entrada: </strong> La cuadricula como una tupla de tuplas, con n&uacute;meros enteros (int) 1/0.</p>
+
+<p><strong>Salida: </strong> Las coordenadas del centro de la colonia m&aacute;s grande, como una lista o tupla de dos enteros (int).</p>
+
+<div class="for_info_only">
+<p><strong>Ejemplo:</strong></p>
+<textarea data-code="python">healthy(((0, 1, 0),
+         (1, 1, 1),
+         (0, 1, 0),))</textarea></div>
+
+<p>&nbsp;</p>
+
+<p class="for_info_only"><strong>&iquest;C&oacute;mo se usa?: </strong> Esta misi&oacute;n presenta una mezcla de modelado, reconocimiento de patrones y estructuras de datos de programaci&oacute;n, adem&aacute;s de presentar algunas ideas de c&oacute;mo se utilizarian estos conceptos en bioinform&aacute;tica. Cabe destacar que estamos asumiendo que la bioinform&aacute;tica es &uacute;til para la biolog&iacute;a cl&aacute;sica.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Condiciones:</strong><br />
+5 &le; len(grid) &le; 20<br />
+all(5 &le; len(row) &le; 20 for row in grid)</p>
